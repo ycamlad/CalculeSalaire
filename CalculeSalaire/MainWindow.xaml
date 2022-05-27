@@ -1,0 +1,41 @@
+﻿<Window x:Class="CalculeSalaire.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CalculeSalaire"
+        mc:Ignorable="d"
+        Title="Calculateur Salaire net" Height="502.525" Width="545.361" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Label Content="Calculateur Salaire net" HorizontalAlignment="Left" Margin="190,35,0,0" VerticalAlignment="Top" Foreground="#FF001EA6" FontSize="20" FontWeight="Bold"/>
+        <Label Content="Département" HorizontalAlignment="Left" Margin="60,93,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtHoraire" HorizontalAlignment="Left" Height="23" Margin="225,124,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding SelectedItem.taux , ElementName=cboDepartement}" />
+        <Slider HorizontalAlignment="Left" Margin="248,178,0,0" VerticalAlignment="Top" Width="209" IsSnapToTickEnabled="True" Name="Slider" Minimum="0" Maximum="40" TickFrequency="8" ValueChanged="Slider_ValueChanged"/>
+        <TextBox x:Name="txtheure" Width="45" Margin="484,173,10,269" Foreground="White"  Background="Gray" OpacityMask="Black" RenderTransformOrigin="-0.07,0.889" IsEnabled="False" Text="0"/>
+        <ComboBox x:Name="cboDepartement" HorizontalAlignment="Left" Margin="60,124,0,0" VerticalAlignment="Top" Width="120"  SelectedIndex="0" ItemsSource="{Binding depart}" DisplayMemberPath="description"/>
+        <Label Content="Taux Horaire" HorizontalAlignment="Left" Margin="248,93,0,0" VerticalAlignment="Top"/>
+        <Label Content="$" HorizontalAlignment="Left" Margin="349,124,0,0" VerticalAlignment="Top"/>
+        <Label Content="Nombre Heures travaillées" HorizontalAlignment="Left" Margin="60,170,0,0" VerticalAlignment="Top"/>
+        <Label Content="Impôt Fédéral" HorizontalAlignment="Left" Margin="72,229,0,0" VerticalAlignment="Top"/>
+        <Label Content="Salaire Net" HorizontalAlignment="Left" Margin="328,382,0,0" VerticalAlignment="Top"/>
+        <Label Content="Total Déduction" HorizontalAlignment="Left" Margin="328,306,0,0" VerticalAlignment="Top"/>
+        <Label Content="Salaire Brut" HorizontalAlignment="Left" Margin="328,229,0,0" VerticalAlignment="Top"/>
+        <Label Content="Assurance Emploi" HorizontalAlignment="Left" Margin="72,382,0,0" VerticalAlignment="Top"/>
+        <Label Content="Régime de Retraite" HorizontalAlignment="Left" Margin="72,324,0,0" VerticalAlignment="Top"/>
+        <Label Content="Impôt Provincial" HorizontalAlignment="Left" Margin="72,274,0,0" VerticalAlignment="Top"/>
+        <Label Content="$" HorizontalAlignment="Left" Margin="502,382,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label Content="$" HorizontalAlignment="Left" Margin="501,306,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label Content="$" HorizontalAlignment="Left" Margin="502,229,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label Content="$" HorizontalAlignment="Left" Margin="279,382,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label Content="$" HorizontalAlignment="Left" Margin="279,324,0,111" FontWeight="Bold"/>
+        <Label Content="$" HorizontalAlignment="Left" Margin="279,274,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label Content="$" HorizontalAlignment="Left" Margin="279,229,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label x:Name="lblBrut" HorizontalAlignment="Left" Margin="440,234,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="#FF0051FF" Content="{Binding brut}" />
+        <Label x:Name="lblEmploie"  HorizontalAlignment="Left" Margin="213,382,0,0" VerticalAlignment="Top" FontWeight="Bold" Content="{Binding ae}"/>
+        <Label x:Name="lblRetraite"  HorizontalAlignment="Left" Margin="213,324,0,0" VerticalAlignment="Top" FontWeight="Bold" Content="{Binding rrc}"/>
+        <Label x:Name="lblProvincial"  HorizontalAlignment="Left" Margin="213,282,0,0" VerticalAlignment="Top" FontWeight="Bold" Content="{Binding prov}"/>
+        <Label x:Name="lblFederal"  HorizontalAlignment="Left" Margin="213,229,0,0" VerticalAlignment="Top" FontWeight="Bold" Content="{Binding fed}"/>
+        <Label x:Name="lblNet"  HorizontalAlignment="Left" Margin="440,382,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="#FF167A0C" Content="{Binding net}"/>
+        <Label x:Name="lblDeduction"  HorizontalAlignment="Left" Margin="440,306,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="#FFF50404" Content="{Binding total}"/>
+    </Grid>
+</Window>
